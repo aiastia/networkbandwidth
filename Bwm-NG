@@ -1,0 +1,52 @@
+Bandwidth Monitor NG (简称为 Bwm-NG)是一个简单的网络和磁盘带宽监视程序，可在Linux、BSD、Solaris等平台上运行。它支持各种各样的检测元件，用于收集各种统计数据，包括/proc/net/dev、netstat、getifaddr、sysctl、kstat、 /proc/diskstats /proc/partitions、 IOKit、 devstat 、 libstatgrab等。接口或设备可以黑白方式列示，这样用户就可以只查看感兴趣的数据。Bwm-NG支持多种输出选项，如图形、纯文本、CVS及 HTML等。
+查看流量命令：bwm-ng -d （按u键可切换流量单位）
+ 
+软件下载地址
+32位
+wget http://apt.sw.be/redhat/el5/en/i386/rpmforge/RPMS/bwm-ng-0.5-2.el5.rf.i386.rpm
+ 
+centos 5
+wget http://dl.fedoraproject.org/pub/epel/5/x86_64/bwm-ng-0.5-9.el5.x86_64.rpm
+ 
+centos6
+wget http://dl.fedoraproject.org/pub/epel/6/x86_64/bwm-ng-0.6-6.el6.1.x86_64.rpm
+ 
+wget http://jaist.dl.sourceforge.net/project/bwmng/bwmng/0.6/bwm-ng-0.6.tar.gz
+ 
+ 
+报错
+error: Failed dependencies:
+        libstatgrab.so.6()(64bit) is needed by bwm-ng-0.5-9.el5.x86_64
+ 
+ 
+centos 6x 补丁包！		
+wget http://dl.fedoraproject.org/pub/epel/6/x86_64/libstatgrab-0.17-1.el6.x86_64.rpm
+ 
+centos 5x 补丁包！
+wget http://dl.fedoraproject.org/pub/epel/5/x86_64/libstatgrab-0.13-4.el5.x86_64.rpm
+安装步骤如下：
+ 
+1.解压
+tar -xvf bwm-ng-0.6.tar.gz 
+ 
+2.进入安装目录
+cd bwm-ng-0.6
+ 
+3.编译安装
+ 
+./configure 
+ 
+make 
+ 
+make install 
+ 
+ 
+4.执行命令
+ 
+bwm-ng 
+ 
+设你使用的是‘curses’输出方式，那么将会用到 ‘a’, ‘t’和‘u’这三个命令键：
+ 
+‘a’-在全部传感器接口和选定接口间转换 (bwm-ng.conf)
+‘t’-在 rate, max (峰值), sum (程序启动后的总吞吐量),以及30秒平均值之间切换。
+‘u’-显示bytes/bits/packets/errors
